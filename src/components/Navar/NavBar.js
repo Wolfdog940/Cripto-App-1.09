@@ -6,8 +6,10 @@ import Typography from "@mui/material/Typography";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { Language } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
-import { setLanguage } from "../store/slices/languageSlice";
+import { setLanguage } from "../../store/slices/languageSlice";
 import { useIntl } from "react-intl";
+import { Link } from "react-router-dom";
+import { styles } from "./styles";
 
 function Nabvar() {
   const intl = useIntl();
@@ -45,8 +47,8 @@ function Nabvar() {
   }, [targetLanguage]);
 
   return (
-    <Box>
-      <AppBar position="fixed" sx={{ background: "rgba(56, 78, 117, 0.9)" }}>
+    <Box sx={{display:"flex", justifyContent:"center"}}>
+      <AppBar position="fixed" sx={styles.appBar}>
         <Toolbar variant="dense">
           <IconButton
             aria-controls={showLanguages ? "basic-menu" : undefined} //que es esto
@@ -64,7 +66,7 @@ function Nabvar() {
           </IconButton>
           <Menu
             id="basic-menu"
-            sx={{ top:30 }}
+            sx={styles.menu}
             open={showLanguages}
             anchorOrigin={{ vertical: "top", horizontal: "left" }}
             onClose={handleCloseList}
@@ -86,9 +88,9 @@ function Nabvar() {
           <Typography
             variant="h6"
             component="div"
-            color="rgba(99, 176, 201, 1) "
+            sx={styles.appName}
           >
-            {intl.formatMessage({ id: "navbar.appName" })}
+            <Link style={{ textDecoration: 'none',color:"#fff"}} to ="/">{intl.formatMessage({ id: "navbar.appName" })}</Link>
           </Typography>
         </Toolbar>
       </AppBar>

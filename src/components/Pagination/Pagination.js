@@ -1,6 +1,7 @@
 import { Box, Button, ButtonGroup } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { styles } from "./styles";
 
 const Pajination = ({ page, setPage }) => {
     
@@ -15,8 +16,8 @@ const Pajination = ({ page, setPage }) => {
   };
 
   return (
-    <Box sx={{ marginTop: "10px", background: "rgba(56, 78, 117, 0.4)" }}>
-      <ButtonGroup sx={{ display: "flex", justifyContent: "center" }}>
+    <Box sx={styles.boxContainer}>
+      <ButtonGroup sx={styles.ButtonGroup}>
         <Button disabled={page < 2} onClick={PrePage}>
           <ArrowBackIosIcon />
         </Button>

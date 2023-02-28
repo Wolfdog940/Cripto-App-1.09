@@ -1,0 +1,64 @@
+export const styles = {
+  gridContainer: {
+    background: "trasparent",
+    display: "flex",
+    justifyContent: "center",
+  },
+
+  card: {
+    width: "95%",
+    borderRadius: "15px",
+    margin: "5px",
+    background: "rgba(56, 78, 117, 0.4)",
+  },
+
+  cardMediaBox: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "10px",
+  },
+
+  cardMedia: {
+    width: "90px",
+  },
+
+  criptoNameBox: {
+    display: "flex",
+    justifyContent: "center",
+  },
+
+  currentPrice: {
+    color: "rgba(99, 176, 201, 1) ",
+  },
+
+  higthPrice: {
+    color: "rgba(118, 212, 51,1)",
+    width: "50%",
+    marginTop: "10px",
+    display: "flex",
+    flexDirection: "row",
+  },
+
+  ArrowUpwardIcon: {
+    color: "rgba(118, 212, 51, 1)",
+    fontSize: "medium",
+    marginLeft: "20px",
+    boxShadow: "0px 0px 3px 2px rgb(10, 221, 10)",
+  },
+
+  ArrowDownwardIcon: {
+    backgroundColor: "rgba(255,0,0,0.2)",
+    color: "red",
+    fontSize: "medium",
+    marginLeft: "20px",
+    boxShadow: "0px 0px 3px 2px #f80d04",
+  },
+
+  lowPrice: {
+    color: " rgba(224, 16, 19, 1)",
+    width: "33%",
+    display: "flex",
+    flexDirection: "row",
+    marginTop: "10px",
+  },
+};

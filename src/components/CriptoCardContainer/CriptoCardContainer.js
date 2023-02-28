@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import {CriptoCard ,Pajination} from './index'
+import {CriptoCard ,Pagination} from '../index'
 import { useQuery } from 'react-query';
 import axios from "axios"
 import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import { styles } from "./styles"
 
 
 
@@ -31,7 +32,7 @@ const CriptoCardContainer = () => {
   if (error) return <Typography>Se produjo un error</Typography>
 
   return (
-    <Box component={"div"} sx={{display:"flex" ,justifyContent:"center"}}>
+    <Box  sx={styles.boxContainer}>
      <Grid  container sx={{marginTop:"160px",display:"flex",justifyContent:"center"}}>
       
       {coins.map((coin) => (
@@ -39,7 +40,7 @@ const CriptoCardContainer = () => {
            <CriptoCard key={coin.id} coin ={coin}/>
          
        ))}
-       <Pajination setPage={setPage} page ={page}/>
+       <Pagination setPage={setPage} page ={page}/>
    </Grid >
    </Box>
    
