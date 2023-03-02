@@ -3,13 +3,17 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { IconButton, Menu, MenuItem } from "@mui/material";
+import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import { Language } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { setLanguage } from "../../store/slices/languageSlice";
 import { useIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import { styles } from "./styles";
+import ZoomInIcon from '@mui/icons-material/ZoomIn';
+import ZoomOutIcon from '@mui/icons-material/ZoomOut';
+import { setAutoComplete } from "../../store/slices/autoCompleteSlice";
+
 
 function Nabvar() {
   const intl = useIntl();
@@ -22,11 +26,15 @@ function Nabvar() {
     intl.formatMessage({ id: "menu.portuguese" }),
   ];
 
+  const [showAutocomplete , setShowAutocomplete] = useState(false)
+
   const [showLanguages, setShowLanguages] = useState(false);
 
   const [targetLanguage, settargetLanguage] = useState("");
 
   const hadleOpenList = () => setShowLanguages(true);
+  
+  const handelAutoComplete = () =>  setShowAutocomplete(!showLanguages)
 
   const handleCloseList = () => setShowLanguages(false);
 
@@ -46,9 +54,25 @@ function Nabvar() {
     localeFunction();
   }, [targetLanguage]);
 
+
+
+
+const setVariablesTrue =()=>{
+  setShowAutocomplete(true)
+  dispatch(setAutoComplete(true))
+  window.scrollTo(0, 0);}
+
+const setVariablesFalse =()=>{
+  setShowAutocomplete(false)
+  dispatch(setAutoComplete(false))
+
+}
+
+
+
   return (
     <Box sx={{display:"flex", justifyContent:"center"}}>
-      <AppBar position="fixed" sx={styles.appBar}>
+      <AppBar  sx={styles.appBar}>
         <Toolbar variant="dense">
           <IconButton
             aria-controls={showLanguages ? "basic-menu" : undefined} //que es esto
@@ -93,6 +117,24 @@ function Nabvar() {
             <Link style={{ textDecoration: 'none',color:"#fff"}} to ="/">{intl.formatMessage({ id: "navbar.appName" })}</Link>
           </Typography>
         </Toolbar>
+        {!showAutocomplete?
+        <Button sx={{display:"flex",alignItems:"center",marginRight:"20px"}}
+         aria-controls={showAutocomplete ? "basic-menu" : undefined}
+         aria-haspopup="true"
+         aria-expanded={showLanguages ? "true" : undefined}
+         onClick={()=>setVariablesTrue()}
+         
+        >
+        <ZoomInIcon fontSize="large"/>
+        </Button>:
+        <Button sx={{display:"flex",alignItems:"center",marginRight:"20px"}}
+         aria-controls={showAutocomplete ? "basic-menu" : undefined}
+         aria-haspopup="true"
+         aria-expanded={showLanguages ? "true" : undefined}
+         onClick={()=>setVariablesFalse()}
+        >
+        <ZoomOutIcon fontSize="large"/>
+        </Button>}
       </AppBar>
     </Box>
   );

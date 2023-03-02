@@ -3,6 +3,7 @@ export const styles = {
     background: "trasparent",
     display: "flex",
     justifyContent: "center",
+   
   },
 
   card: {
@@ -33,10 +34,17 @@ export const styles = {
 
   higthPrice: {
     color: "rgba(118, 212, 51,1)",
-    width: "50%",
+    width: "30%",
     marginTop: "10px",
     display: "flex",
     flexDirection: "row",
+  },
+  lowPrice: {
+    color: " rgba(224, 16, 19, 1)",
+    width: "30%",
+    display: "flex",
+    flexDirection: "row",
+    marginTop: "10px",
   },
 
   ArrowUpwardIcon: {
@@ -54,12 +62,6 @@ export const styles = {
     boxShadow: "0px 0px 3px 2px #f80d04",
   },
 
-  lowPrice: {
-    color: " rgba(224, 16, 19, 1)",
-    width: "33%",
-    display: "flex",
-    flexDirection: "row",
-    marginTop: "10px",
-  },
+
  
 };
