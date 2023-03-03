@@ -76,14 +76,14 @@ const setVariablesFalse =()=>{
             aria-haspopup="true"
             aria-expanded={showLanguages ? "true" : undefined}
             styles={{ position: "absolute", top: 16, right: 16 }}
-            labelId="demo-simple-select-label"
+            // labelId="demo-simple-select-label"
             id="demo-simple-select"
             label="Age"
             onClick={() => {
               hadleOpenList();
             }}
           >
-            <Language fontSize="large" />
+            <Language fontSize="large" sx={{color:"gold"}}/>
           </IconButton>
           <Menu
             id="basic-menu"
@@ -107,31 +107,30 @@ const setVariablesFalse =()=>{
             ))}
           </Menu>
           <Typography
-            variant="h6"
-            component="div"
+            
             sx={styles.appName}
           >
             <Link style={{ textDecoration: 'none',color:"#fff"}} to ="/">{intl.formatMessage({ id: "navbar.appName" })}</Link>
           </Typography>
         </Toolbar>
         {!showAutocomplete?
-        <Button sx={{display:"flex",alignItems:"center",marginRight:"20px"}}
+        <IconButton sx={{display:"flex",alignItems:"center",marginRight:"20px"}}
          aria-controls={showAutocomplete ? "basic-menu" : undefined}
          aria-haspopup="true"
          aria-expanded={showLanguages ? "true" : undefined}
          onClick={()=>setVariablesTrue()}
          
         >
-        <ZoomInIcon fontSize="large"/>
-        </Button>:
-        <Button sx={{display:"flex",alignItems:"center",marginRight:"20px"}}
+        <ZoomInIcon fontSize="large"sx={{color:"gold"}}/>
+        </IconButton>:
+        <IconButton sx={{display:"flex",alignItems:"center",marginRight:"20px"}}
          aria-controls={showAutocomplete ? "basic-menu" : undefined}
          aria-haspopup="true"
          aria-expanded={showLanguages ? "true" : undefined}
          onClick={()=>setVariablesFalse()}
         >
-        <ZoomOutIcon fontSize="large"/>
-        </Button>}
+        <ZoomOutIcon fontSize="large"sx={{color:"gold"}}/>
+        </IconButton>}
       </AppBar>
     </Box>
   );

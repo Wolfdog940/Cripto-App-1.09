@@ -23,10 +23,9 @@ const CriptoCard = ({coin}) => {
   const {image, name, currentPrice, high_24, low_24 ,id ,trade_url} = coin;
 
   const { pathname } = useLocation();
-  console.log(trade_url)
 
   return (
-    <Grid xl={3} xs={12} sm={4} sx={styles.gridContainer} >
+    <Grid item xl={3} xs={12} sm={4} sx={styles.gridContainer} >
       <Card sx={styles.card}>
       <Box sx={styles.cardMediaBox}>
         <CardMedia
@@ -39,7 +38,7 @@ const CriptoCard = ({coin}) => {
 
         <CardContent>
           <Box sx={styles.criptoNameBox}>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div" sx={styles.texName}>
               {name}
             </Typography>
           </Box>
@@ -47,7 +46,7 @@ const CriptoCard = ({coin}) => {
             {intl.formatMessage({ id: "card.price" })}{" "}
             {`${currentPrice} €`}
           </Typography>
-          <Box sx={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
+          <Box sx={styles.bottonContentBox}>
         <Box sx={{display:"flex" ,justifyContent:"space-between"}}>
         <Box sx={styles.higthPrice}>
             <PriceVariation> {high_24.toFixed(1)}</PriceVariation>
@@ -58,13 +57,13 @@ const CriptoCard = ({coin}) => {
             <ArrowDownwardIcon sx={styles.ArrowDownwardIcon} />
           </Box>
         </Box>
-          {pathname.includes("info")? (<Box ><a style={{ textDecoration: 'none',color:"#fff"}}  target="_blank" href={trade_url}>Visita la web oficial</a></Box>):null}
+          {pathname.includes("info")? (<Box  sx={styles.link}><a style={{ textDecoration: 'none',color:"#fff"}}   target="_blank" href={trade_url}>Visita la web oficial</a></Box>):null}
           </Box>
         </CardContent>
         {!pathname.includes("info") ? (
           <CardActions>
             <Link style={{ textDecoration: 'none',color:"#fff"}}  to={`/info/${id}`}>
-              <Button size="small">
+              <Button size="small" sx={{color:"gold"}}>
                 {intl.formatMessage({ id: "card.moreinfo" })}
               </Button>
             </Link>

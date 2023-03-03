@@ -29,7 +29,7 @@ export const styles = {
   },
 
   currentPrice: {
-    color: "rgba(99, 176, 201, 1) ",
+    color: "gold",
   },
 
   higthPrice: {
@@ -61,7 +61,29 @@ export const styles = {
     marginLeft: "20px",
     boxShadow: "0px 0px 3px 2px #f80d04",
   },
+  texName:{
+    color:"gold"
+  },
+  bottonContentBox:{
+    
+    display:"flex",
+    
+    flexDirection:{
+      xl:"row",
+      xs:"column"
+    },
+    justifyContent:"space-between"
+  },
+link:{
+display:"flex",
+justifyContent:{
+  xs:"center"
+},
+paddingTop:{
+  xs:"20px"
+},
 
+},
 
  
 };

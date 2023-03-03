@@ -19,7 +19,7 @@ const CriptoCardContainer = () => {
       axios.get(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=20&page=${page}&sparkline=false`
       ),
-    onSuccess: () => console.log("ok"),
+    // onSuccess: () => console.log("ok"),
     select: (data) => data?.data?.map((data) => ({
       image: data.image,
       name: data.name,
@@ -29,8 +29,6 @@ const CriptoCardContainer = () => {
       id:data.id
     })),
   });
-
-  console.log(coins)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -55,7 +53,7 @@ const CriptoCardContainer = () => {
             
           />
         ))}
-        <Pagination setPage={setPage} page={page} />
+        <Pagination setPage={setPage} page={page}  />
       </Grid>
     </Box>
   );

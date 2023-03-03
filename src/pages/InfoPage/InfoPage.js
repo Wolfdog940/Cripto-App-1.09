@@ -3,7 +3,7 @@ import { CriptoCard } from "../../components/index";
 import { useQuery } from "react-query";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import { Button, Typography } from "@mui/material";
+import { Button, IconButton, Typography } from "@mui/material";
 import { styles } from "./styles";
 import { Box } from "@mui/system";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
@@ -38,12 +38,12 @@ export const InfoPage = () => {
       
         <Box sx={{ display: "flex", justifyContent: "center", padding: "1%" }}>
           <Link to="/">
-            <Button variant="outlined" sx={{ width: "5%" }}>
-              <HomeRoundedIcon />
-            </Button>
+            <IconButton variant="outlined" sx={{background: "rgba(56, 78, 117, 0.4)"}}>
+              <HomeRoundedIcon sx={{color:"white"}}/>
+            </IconButton>
           </Link>
         </Box>
-        <Box sx={{margin:"5%"}}>
+        <Box sx={{margin:"5%",width:"45%"}}>
         <CriptoCard id={id} coin={coin} />
       </Box>
     </Box>

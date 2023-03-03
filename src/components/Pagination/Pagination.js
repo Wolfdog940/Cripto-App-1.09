@@ -19,10 +19,10 @@ const Pajination = ({ page, setPage }) => {
     <Box sx={styles.boxContainer}>
       <ButtonGroup sx={styles.ButtonGroup}>
         <Button disabled={page < 2} onClick={PrePage}>
-          <ArrowBackIosIcon />
+          <ArrowBackIosIcon sx={{color:"gold"}} />
         </Button>
         <Button onClick={NextPage}>
-          <ArrowForwardIosIcon />
+          <ArrowForwardIosIcon  sx={{color:"gold"}} />
         </Button>
       </ButtonGroup>
     </Box>
