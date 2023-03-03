@@ -7,7 +7,7 @@ export const styles = {
   },
 
   card: {
-    width: "95%",
+    width: "90%",
     borderRadius: "15px",
     margin: "5px",
     background: "rgba(56, 78, 117, 0.4)",

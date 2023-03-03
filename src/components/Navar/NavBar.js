@@ -34,7 +34,7 @@ function Nabvar() {
 
   const hadleOpenList = () => setShowLanguages(true);
   
-  const handelAutoComplete = () =>  setShowAutocomplete(!showLanguages)
+  
 
   const handleCloseList = () => setShowLanguages(false);
 
@@ -53,9 +53,6 @@ function Nabvar() {
   useEffect(() => {
     localeFunction();
   }, [targetLanguage]);
-
-
-
 
 const setVariablesTrue =()=>{
   setShowAutocomplete(true)

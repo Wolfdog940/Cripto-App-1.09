@@ -4,6 +4,7 @@
     "menu.english":"Ingles",
     "menu.portuguese":"Portugues",
     "card.price":"Precio",
-    "card.moreinfo":"Mas informacion"
-    
+    "card.moreinfo":"Mas informacion",
+    "imputCoin":"Moneda",
+    "searchButton":"Buscar"
 }

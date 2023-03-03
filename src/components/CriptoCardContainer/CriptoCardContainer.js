@@ -20,8 +20,17 @@ const CriptoCardContainer = () => {
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=20&page=${page}&sparkline=false`
       ),
     onSuccess: () => console.log("ok"),
-    select: (data) => data.data,
+    select: (data) => data?.data?.map((data) => ({
+      image: data.image,
+      name: data.name,
+      currentPrice: data.current_price,
+      high_24: data.high_24h,
+      low_24: data.low_24h,
+      id:data.id
+    })),
   });
+
+  console.log(coins)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,6 +39,8 @@ const CriptoCardContainer = () => {
   if (isLoading) return <Typography>...is loading</Typography>;
   if (error) return <Typography>Se produjo un error</Typography>;
 
+ 
+
   return (
     <Box sx={styles.boxContainer} >
       <Grid
@@ -37,14 +48,11 @@ const CriptoCardContainer = () => {
         sx={styles.grid}
       >
         {coins.map((coin) => (
-          <CriptoCard
+          
+         <CriptoCard
             key={coin.id}
             coin={coin}
-            image={coin?.image}
-            name={coin?.name}
-            currentPrice={coin?.current_price}
-            high_24={coin?.high_24h}
-            low_24={coin?.low_24h}
+            
           />
         ))}
         <Pagination setPage={setPage} page={page} />

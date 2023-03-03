@@ -1,9 +1,10 @@
 {
-    "navbar.appName":"Mercado Criptográfico" ,
+    "navbar.appName":"Mercado de Cripto" ,
     "menu.spanish":"Espanhol",
     "menu.english":"Inglês",
     "menu.portuguese":"Português",
     "card.price":"Preço",
-    "card.moreinfo":"mais informação"
-    
+    "card.moreinfo":"mais informação",
+    "imputCoin":"Moeda",
+    "searchButton":"Procurar"
 }

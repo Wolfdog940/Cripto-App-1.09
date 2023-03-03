@@ -13,12 +13,17 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { styles } from "./styles";
 import { Link, useLocation } from "react-router-dom";
 
-const CriptoCard = (props) => {
+
+const CriptoCard = ({coin}) => {
   const intl = useIntl();
 
-  const { coin ,image ,name ,currentPrice ,high_24 ,low_24} = props;
+ //const { coin ,image ,name ,currentPrice ,high_24 ,low_24} = props;
+
+
+  const {image, name, currentPrice, high_24, low_24 ,id ,trade_url} = coin;
 
   const { pathname } = useLocation();
+  console.log(trade_url)
 
   return (
     <Grid xl={3} xs={12} sm={4} sx={styles.gridContainer} >
@@ -42,18 +47,23 @@ const CriptoCard = (props) => {
             {intl.formatMessage({ id: "card.price" })}{" "}
             {`${currentPrice} €`}
           </Typography>
-          <Box sx={styles.higthPrice}>
-            <PriceVariation> {`${high_24.toFixed(1)} €`}</PriceVariation>
+          <Box sx={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
+        <Box sx={{display:"flex" ,justifyContent:"space-between"}}>
+        <Box sx={styles.higthPrice}>
+            <PriceVariation> {high_24.toFixed(1)}</PriceVariation>
             <ArrowUpwardIcon sx={styles.ArrowUpwardIcon} />
           </Box>
           <Box sx={styles.lowPrice}>
-            <PriceVariation>{`${low_24?.toFixed(1)} €`}</PriceVariation>
+            <PriceVariation>{low_24?.toFixed(1)}</PriceVariation>
             <ArrowDownwardIcon sx={styles.ArrowDownwardIcon} />
+          </Box>
+        </Box>
+          {pathname.includes("info")? (<Box ><a style={{ textDecoration: 'none',color:"#fff"}}  target="_blank" href={trade_url}>Visita la web oficial</a></Box>):null}
           </Box>
         </CardContent>
         {!pathname.includes("info") ? (
           <CardActions>
-            <Link style={{ textDecoration: 'none',color:"#fff"}}  to={`/info/${coin?.id}`}>
+            <Link style={{ textDecoration: 'none',color:"#fff"}}  to={`/info/${id}`}>
               <Button size="small">
                 {intl.formatMessage({ id: "card.moreinfo" })}
               </Button>

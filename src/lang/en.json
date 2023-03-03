@@ -4,6 +4,8 @@
     "menu.english":"English",
     "menu.portuguese":"Portuguese",
     "card.price":"Price",
-    "card.moreinfo":"More info"
+    "card.moreinfo":"More info",
+    "imputCoin":"Coin",
+    "searchButton":"Search"
     
 }
