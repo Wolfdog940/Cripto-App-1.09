@@ -12,7 +12,7 @@ export const styles = {
     cardContent:{
         width:{
             xl:"30%",
-            xs:"60%"
+            xs:"95%"
         },
         borderRadius: "25px",
         background: "rgba(56, 78, 117, 0.01)",

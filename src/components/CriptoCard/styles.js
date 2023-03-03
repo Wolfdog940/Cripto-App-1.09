@@ -30,6 +30,12 @@ export const styles = {
 
   currentPrice: {
     color: "gold",
+    display:{
+      xs:"flex"
+    },
+    justifyContent:{
+      xs:"center"
+    }
   },
 
   higthPrice: {

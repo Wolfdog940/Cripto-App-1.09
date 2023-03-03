@@ -13,7 +13,7 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  IconButton
+  IconButton,
 } from "@mui/material";
 import { useSelector } from "react-redux";
 import Slide from "@mui/material/Slide";
@@ -26,9 +26,8 @@ import { marketURL } from "../../services/common";
 import { useGetCoinsQuery } from "../../services/api";
 
 const AutoComplete = () => {
-
   const intl = useIntl();
-  const nav = useNavigate()
+  const nav = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -36,37 +35,26 @@ const AutoComplete = () => {
   const auto = useSelector((state) => state.autoComplete.autoComplete);
   const [coin, setCoin] = useState();
 
-  const { isLoading, data: coins, error } = useGetCoinsQuery({
+  const {
+    isLoading,
+    data: coins,
+    error,
+  } = useGetCoinsQuery({
     select: (data) => data.data,
-    // onSuccess: () => console.log("ok"),
   });
 
   const defaultOptions = {
     options: coins?.length > 0 ? coins : [],
     getOptionLabel: (options) => options.id,
   };
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
 
   const handleSearchButtonClick = () => {
-    (coin)
-    ? nav(`/info/${coin.id}`)
-    : openModal()
+    coin ? nav(`/info/${coin.id}`) : openModal();
   };
 
   if (isLoading) return <Typography>...is loading</Typography>;
-  
-  if (error) return <Typography>Se produjo un error</Typography>;
 
+  if (error) return <Typography>Se produjo un error</Typography>;
 
   return (
     <Grid xs={12}>
@@ -81,7 +69,6 @@ const AutoComplete = () => {
               getOptionLabel={(option) => option.id}
               onChange={(event, newValue) => {
                 setCoin(newValue);
-                
               }}
               sx={styles.autoComplete}
               renderInput={(params) => (
@@ -98,20 +85,22 @@ const AutoComplete = () => {
         <Slide direction="left" in={auto}>
           <Box sx={styles.boxButtonContainer}>
             <IconButton sx={styles.button} onClick={handleSearchButtonClick}>
-             <Typography fontWeight={"bold"}>{intl.formatMessage({ id: "searchButton" })}</Typography>
+              <Typography fontWeight={"bold"}>
+                {intl.formatMessage({ id: "searchButton" })}
+              </Typography>
             </IconButton>
           </Box>
         </Slide>
       </Card>
-
       <Dialog open={isModalOpen} onClose={closeModal}>
         <DialogTitle>Debe seleccionar una moneda.</DialogTitle>
-        <DialogContent>Hay que elegir una moneda porque..</DialogContent>
+        <DialogContent>Elija una moneda para continuar</DialogContent>
         <DialogActions>
-          <Button variant='contained' onClick={closeModal}>Cerrar</Button>
+          <Button variant="contained" onClick={closeModal}>
+            Cerrar
+          </Button>
         </DialogActions>
       </Dialog>
-
     </Grid>
   );
 };
