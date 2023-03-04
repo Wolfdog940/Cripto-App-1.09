@@ -14,5 +14,12 @@ export const styles ={
         
         
         
+    },
+    criptoCardBox:{
+        margin:"5%",
+        width:{
+            xl:"45%",
+            xs:"95%"
+        }
     }
 }

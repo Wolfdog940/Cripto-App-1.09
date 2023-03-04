@@ -43,7 +43,7 @@ export const InfoPage = () => {
             </IconButton>
           </Link>
         </Box>
-        <Box sx={{margin:"5%",width:"95%"}}>
+        <Box sx={styles.criptoCardBox}>
         <CriptoCard id={id} coin={coin} />
       </Box>
     </Box>

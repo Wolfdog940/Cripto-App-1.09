@@ -57,7 +57,7 @@ const CriptoCard = ({coin}) => {
             <ArrowDownwardIcon sx={styles.ArrowDownwardIcon} />
           </Box>
         </Box>
-          {pathname.includes("info")? (<Box  sx={styles.link}><a style={{ textDecoration: 'none',color:"#fff"}}   target="_blank" href={trade_url}>Visita la web oficial</a></Box>):null}
+        {pathname.includes("info")? (<Box  sx={styles.link}><a style={{ textDecoration: 'none',color:"#fff"}}   target="_blank" href={trade_url}>Visita la web oficial</a></Box>):null}
           </Box>
         </CardContent>
         {!pathname.includes("info") ? (
