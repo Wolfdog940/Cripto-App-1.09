@@ -47,7 +47,7 @@ const CriptoCard = ({coin}) => {
             {`${currentPrice} €`}
           </Typography>
           <Box sx={styles.bottonContentBox}>
-        <Box sx={{display:"flex" ,justifyContent:"space-between"}}>
+        <Box sx={{display:"flex" ,flexDirection:"column"}}>
         <Box sx={styles.higthPrice}>
             <PriceVariation> {high_24.toFixed(1)}</PriceVariation>
             <ArrowUpwardIcon sx={styles.ArrowUpwardIcon} />

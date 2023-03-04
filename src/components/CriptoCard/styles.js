@@ -51,6 +51,7 @@ export const styles = {
     display: "flex",
     flexDirection: "row",
     marginTop: "10px",
+    
   },
 
   ArrowUpwardIcon: {
