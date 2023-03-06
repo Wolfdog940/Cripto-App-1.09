@@ -6,6 +6,9 @@
     "card.price":"Price",
     "card.moreinfo":"More info",
     "imputCoin":"Coin",
-    "searchButton":"GO!"
-    
+    "searchButton":"GO!",
+    "modalTitle":"You must select a currency!",
+    "modalBody":"Select a currency to continue",
+    "modalCloseButton":"Close",
+    "infoCardLink":"Visit the official website"
 }

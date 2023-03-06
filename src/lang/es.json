@@ -6,5 +6,10 @@
     "card.price":"Precio",
     "card.moreinfo":"Mas informacion",
     "imputCoin":"Moneda",
-    "searchButton":"Ir!"
+    "searchButton":"Ir!",
+    "modalTitle":"Debe seleccionar una moneda!",
+    "modalBody":"Elija una moneda para continuar",
+    "modalCloseButton":"Cerrar",
+    "infoCardLink":"Visita la web oficial"
+    
 }

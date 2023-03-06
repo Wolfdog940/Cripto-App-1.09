@@ -1,7 +1,6 @@
 export const styles ={
     box:{
-        
-		display:"flex",
+        display:"flex",
         flexDirection:"column",
         padding:"15px",
         alignItems:"center",
@@ -11,9 +10,6 @@ export const styles ={
 		backgroundSize: "cover",
 		minHeight:"100vh",
         width:"100%",
-        
-        
-        
     },
     criptoCardBox:{
         margin:"5%",
@@ -21,5 +17,15 @@ export const styles ={
             xl:"45%",
             xs:"95%"
         }
+    },
+    boxContainer:{
+        display: "flex",
+        justifyContent:"center",
+        padding: "1%" 
+    },
+    IconButton:{
+        background: "rgba(56, 78, 117, 0.4)"
+    },
+    HomeRoundedIcon:{color:"white"
     }
 }

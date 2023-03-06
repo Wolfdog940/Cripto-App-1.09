@@ -3,17 +3,16 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Button, IconButton, Menu, MenuItem } from "@mui/material";
+import { IconButton, Menu, MenuItem } from "@mui/material";
 import { Language } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { setLanguage } from "../../store/slices/languageSlice";
 import { useIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import { styles } from "./styles";
-import ZoomInIcon from '@mui/icons-material/ZoomIn';
-import ZoomOutIcon from '@mui/icons-material/ZoomOut';
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 import { setAutoComplete } from "../../store/slices/autoCompleteSlice";
-
 
 function Nabvar() {
   const intl = useIntl();
@@ -26,15 +25,13 @@ function Nabvar() {
     intl.formatMessage({ id: "menu.portuguese" }),
   ];
 
-  const [showAutocomplete , setShowAutocomplete] = useState(false)
+  const [showAutocomplete, setShowAutocomplete] = useState(false);
 
   const [showLanguages, setShowLanguages] = useState(false);
 
   const [targetLanguage, settargetLanguage] = useState("");
 
   const hadleOpenList = () => setShowLanguages(true);
-  
-  
 
   const handleCloseList = () => setShowLanguages(false);
 
@@ -54,22 +51,20 @@ function Nabvar() {
     localeFunction();
   }, [targetLanguage]);
 
-const setVariablesTrue =()=>{
-  setShowAutocomplete(true)
-  dispatch(setAutoComplete(true))
-  window.scrollTo(0, 0);}
+  const setVariablesTrue = () => {
+    setShowAutocomplete(true);
+    dispatch(setAutoComplete(true));
+    window.scrollTo(0, 0);
+  };
 
-const setVariablesFalse =()=>{
-  setShowAutocomplete(false)
-  dispatch(setAutoComplete(false))
-
-}
-
-
+  const setVariablesFalse = () => {
+    setShowAutocomplete(false);
+    dispatch(setAutoComplete(false));
+  };
 
   return (
-    <Box sx={{display:"flex", justifyContent:"center"}}>
-      <AppBar  sx={styles.appBar}>
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <AppBar sx={styles.appBar}>
         <Toolbar variant="dense">
           <IconButton
             aria-controls={showLanguages ? "basic-menu" : undefined} //que es esto
@@ -83,7 +78,7 @@ const setVariablesFalse =()=>{
               hadleOpenList();
             }}
           >
-            <Language fontSize="large" sx={{color:"gold"}}/>
+            <Language fontSize="large" sx={{ color: "gold" }} />
           </IconButton>
           <Menu
             id="basic-menu"
@@ -106,31 +101,33 @@ const setVariablesFalse =()=>{
               </MenuItem>
             ))}
           </Menu>
-          <Typography
-            
-            sx={styles.appName}
-          >
-            <Link style={{ textDecoration: 'none',color:"#fff"}} to ="/">{intl.formatMessage({ id: "navbar.appName" })}</Link>
+          <Typography sx={styles.appName}>
+            <Link style={{ textDecoration: "none", color: "#fff" }} to="/">
+              {intl.formatMessage({ id: "navbar.appName" })}
+            </Link>
           </Typography>
         </Toolbar>
-        {!showAutocomplete?
-        <IconButton sx={{display:"flex",alignItems:"center",marginRight:"20px"}}
-         aria-controls={showAutocomplete ? "basic-menu" : undefined}
-         aria-haspopup="true"
-         aria-expanded={showLanguages ? "true" : undefined}
-         onClick={()=>setVariablesTrue()}
-         
-        >
-        <ZoomInIcon fontSize="large"sx={{color:"gold"}}/>
-        </IconButton>:
-        <IconButton sx={{display:"flex",alignItems:"center",marginRight:"20px"}}
-         aria-controls={showAutocomplete ? "basic-menu" : undefined}
-         aria-haspopup="true"
-         aria-expanded={showLanguages ? "true" : undefined}
-         onClick={()=>setVariablesFalse()}
-        >
-        <ZoomOutIcon fontSize="large"sx={{color:"gold"}}/>
-        </IconButton>}
+        {!showAutocomplete ? (
+          <IconButton
+            sx={styles.zoomInIconButton}
+            aria-controls={showAutocomplete ? "basic-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={showLanguages ? "true" : undefined}
+            onClick={() => setVariablesTrue()}
+          >
+            <ZoomInIcon fontSize="large" sx={styles.zoomIn} />
+          </IconButton>
+        ) : (
+          <IconButton
+            sx={styles.zoomOutIconButton}
+            aria-controls={showAutocomplete ? "basic-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={showLanguages ? "true" : undefined}
+            onClick={() => setVariablesFalse()}
+          >
+            <ZoomOutIcon fontSize="large" sx={styles.zoomOut} />
+          </IconButton>
+        )}
       </AppBar>
     </Box>
   );

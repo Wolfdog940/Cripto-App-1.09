@@ -17,9 +17,7 @@ import {
 } from "@mui/material";
 import { useSelector } from "react-redux";
 import Slide from "@mui/material/Slide";
-import { useQuery } from "react-query";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { styles } from "./styles";
 import Modal from "../Modal.js/Modal";
 import { marketURL } from "../../services/common";
@@ -93,11 +91,11 @@ const AutoComplete = () => {
         </Slide>
       </Card>
       <Dialog open={isModalOpen} onClose={closeModal}>
-        <DialogTitle>Debe seleccionar una moneda.</DialogTitle>
-        <DialogContent>Elija una moneda para continuar</DialogContent>
+        <DialogTitle>{intl.formatMessage({ id: "modalTitle" })}</DialogTitle>
+        <DialogContent>{intl.formatMessage({ id: "modalBody" })}</DialogContent>
         <DialogActions>
           <Button variant="contained" onClick={closeModal}>
-            Cerrar
+            {intl.formatMessage({ id: "modalCloseButton" })}
           </Button>
         </DialogActions>
       </Dialog>

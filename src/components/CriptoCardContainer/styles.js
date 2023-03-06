@@ -1,13 +1,12 @@
 export const styles = {
   boxContainer: {
     display: "flex",
-    flexDirection:"column",
+    flexDirection: "column",
     width: "100%",
   },
-  grid:{
+  grid: {
     marginTop: "60px",
-     display: "flex", 
-     justifyContent: "center"
+    display: "flex",
+    justifyContent: "center",
   },
- 
 };
