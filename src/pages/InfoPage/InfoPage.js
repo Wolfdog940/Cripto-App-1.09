@@ -7,9 +7,13 @@ import { IconButton, Typography } from "@mui/material";
 import { styles } from "./styles";
 import { Box } from "@mui/system";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import { useDispatch } from "react-redux";
+import { setAutoComplete } from "../../store/slices/autoCompleteSlice";
 
 export const InfoPage = () => {
   const { id } = useParams();
+
+  const dispatch = useDispatch();
 
   const {
     isLoading,
@@ -38,7 +42,7 @@ export const InfoPage = () => {
       
         <Box sx={styles.boxContainer}>
           <Link to="/">
-            <IconButton variant="outlined" sx={{background: "rgba(56, 78, 117, 0.4)"}}>
+            <IconButton variant="outlined" sx={{background: "rgba(56, 78, 117, 0.4)"}} onClick={dispatch(setAutoComplete(false))}>
               <HomeRoundedIcon sx={styles.HomeRoundedIcon}/>
             </IconButton>
           </Link>

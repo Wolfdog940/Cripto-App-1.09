@@ -4,7 +4,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { styles } from "./styles";
 
 const Pajination = ({ page, setPage }) => {
-    
   const NextPage = () => {
     setPage(page + 1);
     console.log(page);
@@ -22,7 +21,7 @@ const Pajination = ({ page, setPage }) => {
           <ArrowBackIosIcon sx={styles.ArrowBackIosIcon} />
         </Button>
         <Button onClick={NextPage}>
-          <ArrowForwardIosIcon  sx={styles.ArrowForwardIosIcon} />
+          <ArrowForwardIosIcon sx={styles.ArrowForwardIosIcon} />
         </Button>
       </ButtonGroup>
     </Box>
