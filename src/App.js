@@ -4,11 +4,11 @@ import store from "./store/store";
 import { LanguageProvider } from "./lang/Provider/LanguageProvider";
 import router from "./router/router";
 import { RouterProvider } from "react-router-dom";
-import { WorkBoxProvider } from "react-workbox";
+import { WorkboxProvider } from "react-workbox";
 
 function App() {
   return (
-    <WorkBoxProvider interval={30 * 1000}>
+    <WorkboxProvider interval={30 * 1000}>
       <Provider store={store}>
         <QueryClientProvider client={new QueryClient()}>
           <LanguageProvider>
@@ -16,7 +16,7 @@ function App() {
           </LanguageProvider>
         </QueryClientProvider>
       </Provider>
-    </WorkBoxProvider>
+    </WorkboxProvider>
   );
 }
 
